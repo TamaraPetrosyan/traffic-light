@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Traffic Light</title>
+</head>
+<body>
+    <div class="traffic">
+    <div id="traffic-light">
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="green"></div>
+        <audio id="trafficAudio" src="sound.mp3"></audio>    
+    </div>
+    <div id="line1"></div>
+    <div id="line2"></div>
+    </div>
+    <div class="street">
+    <div id="street1"></div>
+    <div> <img src="images/car.jpg"></div>
+    <div id="street2"></div>
+    </div>
+
+</body>
+<script>
+    let green=document.getElementById("green");
+    let red=document.getElementById("red");
+    let yellow=document.getElementById("yellow");
+    let trafficAudio=document.getElementById('trafficAudio');
+    function startTraffic () {
+        setTimeout(function () {  
+            red.style.opacity=.3;
+            yellow.style.opacity=1;
+            green.style.opacity=.3;
+            trafficAudio.pause(); 
+        },3000);
+        setTimeout(function () {
+            red.style.opacity=1;
+            yellow.style.opacity=.3;
+            green.style.opacity=.3;
+            trafficAudio.pause(); 
+        },2000);
+        setTimeout(function () {
+            red.style.opacity=.3;
+            yellow.style.opacity=.3;
+            green.style.opacity=1;
+            trafficAudio.play();
+        },6000);
+    }
+    let timer=setInterval(function () {
+        startTraffic();
+    },11000);
+    startTraffic();
+</script>
+</html>
